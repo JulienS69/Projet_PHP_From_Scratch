@@ -29,6 +29,4 @@
 <script src="assets/js/outofview.js"></script>
 <script src="assets/js/tether.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
-</body>
 
-</html>

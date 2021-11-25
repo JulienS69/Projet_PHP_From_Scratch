@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Données - Application-Client-Serveur</title>
-    <link rel="stylesheet" href="assets/css/bootstrap4.min.css">
-    <link rel="stylesheet" href="assets/css/mainv2.css">
-    <link rel="stylesheet" href="assets/css/wireframe-theme.min.css">
-    <script class="picturefill" async="async" src="assets/js/picturefill.min.js"></script>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="shortcut icon" href="assets/img/XEFI.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-</head>
-<body style="font-size: 12pt;">
+<body style="font-size: 10pt;">
 <div class="row wecome-row" style="padding-top: 10px; padding-bottom: 20px">
     <div class="col-xs-12 welcome-column">
         <h4 class="welcome-subtitle">Accéder aux</h4>
         <h1>Données</h1>
     </div>
 </div>
-
-<div class="min-h-screen bg-gray-100">
+<div class="min-h-screen bg-gray-100" style="padding-top: 50px; padding-bottom: 50px">
     <div class="row justify-content-center" style="padding-top: 25px">
         <div class="col-xl-10 col-xxl-9">
             <div class="card shadow">
@@ -36,17 +20,24 @@
                                 <th>Nom du Client</th>
                                 <th>Prénom du Client</th>
                                 <th>Ville du client</th>
+                                <th>Ajouter</th>
+                                <th>Supprimer</th>
                             </tr>
                             </thead>
                             <tbody>
-
                             <?php
                             foreach ($data as $leClient){
                             ?>
                             <tr>
-                                <td class="text-truncate" style="max-width: 200px;"><?php echo $leClient->ClientNom ?></td>
-                                <td class="text-truncate" style="max-width: 200px;"><?php echo $leClient ->ClientPrenom ?></td>
-                                <td class="text-truncate" style="max-width: 200px;"><?php echo $leClient ->ClientVille ?></td>
+                                <td class="text-truncate" style="max-width: 200px; padding-left: 20px"><?php echo $leClient->ClientNom ?></td>
+                                <td class="text-truncate" style="max-width: 200px;  padding-left: 20px"><?php echo $leClient ->ClientPrenom ?></td>
+                                <td class="text-truncate" style="max-width: 200px; padding-left: 20px"><?php echo $leClient ->ClientVille ?></td>
+                                <form action="" method="post">
+                                <td class="text-truncate"  style="max-width: 200px; padding-left: 20px"><button type="submit"><i class="fa fa-plus-square"></i></button></td>
+                                </form>
+                                <form action="" method="post">
+                                    <td class="text-truncate"  style="max-width: 200px; padding-left: 35px"><button type="submit"><i class="fa fa-minus-square"></i></button></td>
+                                </form>
                             <?php } ?>
                             </tr>
                             </tbody>
@@ -56,10 +47,8 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 </div>
-</body>
-</html>
+
 
     <?php
 //    include("Client.php");
