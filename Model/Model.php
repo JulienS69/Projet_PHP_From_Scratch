@@ -21,26 +21,54 @@ abstract class Model
 
         return $st->fetch(PDO::FETCH_ASSOC);
     }
+
+//    function testCreate($data){
+//        $data=[];
+//        $db = $this->connection();
+//        $table = strtolower(get_called_class());
+//        $st = $db->prepare("INSERT INTO $table VALUE $data");
+//        $st -> execute();
+//    }
+
+    static function create(array $data){
+        $pdo = self::connection();
+        $table = strtolower(get_called_class());
+        $insert = "";
+        $count = count($data);
+        $theCount = 0;
+        foreach ($data as $key => $value){
+            if($theCount != $count - 1){
+                $insert .= $value.", ";
+                $theCount++;
+            }else{
+                $insert .= $value;
+            }
+        }
+        $sql = "insert into $table values (default, ?)";
+        $req = $pdo->prepare($sql);
+        $req->execute(array($insert));
+    }
+
     function save(){
         $table = strtolower(get_called_class());
         $db = $this->connection();
         $pk = $this->id;
         if($pk == null) {
-            $st = $db->prepare("insert into $table default 
-            Values returning id");
+            $st = $db->prepare("insert into $table Values ()");
+            $st->execute();
+            $st = $db->prepare("select MAX(id) as id from $table ");
             $st->execute();
             $row = $st->fetch(PDO::FETCH_ASSOC);
             $this->id = $row["id"];
         }
-
-        foreach ($this->$fields as $field){
+        foreach ($this->fields as $field){
             $st = $db->prepare("update $table set $field = VALUE WHERE id=:id");
             $st->bindValue("Value",$this->$field);
             $st->bindValue("id",$this->id);
             $st->execute();
         }
     }
-    function connection()
+    static function connection()
     {
         return  new PDO('mysql:host=localhost:3306;dbname=creditsiov2;charset=utf8','root', '');
     }

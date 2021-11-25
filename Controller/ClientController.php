@@ -16,8 +16,25 @@ class ClientController extends Controller {
 
     public function add() {
 
-        $this->view("AddClient");
 
+
+        (new Client)->create([
+            "ClientNom" => $_POST["nom"],
+            "ClientPrenom" => $_POST["prenom"],
+            "ClientRue"=> $_POST["street"],
+            "clientCP"=> $_POST["cp"],
+            "ClientVille"=> $_POST["city"],
+            "ClientTelephone"=> $_POST["tel"],
+            "ClientMail"=> $_POST["mail"]
+        ]);
+
+        $clients=(new Client)->all();
+        $this->view("ClientView", $clients);
+
+    }
+
+    public function showForm(){
+          $this->view("AddClient");
     }
 
 

@@ -7,21 +7,21 @@
 </div>
     </body>
     <div class="card-body">
-        <form method="POST" action="">
+        <form method="POST" action="?route=addClient">
             <label for="">Nom : </label>
-            <input type="url" name="nom"><br><br>
-            <label for="">Prénom : </label>
-            <input type="url" name="prenom"><br><br>
+            <input type="text" name="nom" style="color: #0b0b0b"><br><br>
+            <label for="" >Prénom : </label>
+            <input type="text" name="prenom" style="color: #0b0b0b"><br><br>
             <label for="">Rue : </label>
-            <input type="url" name="street"><br><br>
+            <input type="text" name="street" style="color: #0b0b0b"><br><br>
             <label for="">Code Postal : </label>
-            <input type="number" name="cp"><br><br>
+            <input type="text" name="cp" style="color: #0b0b0b"><br><br>
             <label for="">Ville :</label>
-            <input type="url" name="city"><br><br>
+            <input type="text" name="city" style="color: #0b0b0b"><br><br>
             <label for="">Téléphone :</label>
-            <input type="number" name="tel"><br><br>
+            <input type="text" name="tel" style="color: #0b0b0b"><br><br>
             <label for="">Adresse Mail :</label>
-            <input type="email" name="mail"><br><br>
+            <input type="text" name="mail" style="color: #0b0b0b"><br><br>
 
             <input type="submit" style="font-weight: bold">
         </form>
