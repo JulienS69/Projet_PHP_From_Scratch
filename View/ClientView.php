@@ -32,11 +32,9 @@
                                 <td class="text-truncate" style="max-width: 200px; padding-left: 20px"><?php echo $leClient->ClientNom ?></td>
                                 <td class="text-truncate" style="max-width: 200px;  padding-left: 20px"><?php echo $leClient ->ClientPrenom ?></td>
                                 <td class="text-truncate" style="max-width: 200px; padding-left: 20px"><?php echo $leClient ->ClientVille ?></td>
+                                <td class="text-truncate" style="max-width: 200px; padding-left: 20px"><a class="btn" href="?route=addClient"><i class="fa fa-plus-circle"></i></a></td>
                                 <form action="" method="post">
-                                <td class="text-truncate"  style="max-width: 200px; padding-left: 20px"><button type="submit"><i class="fa fa-plus-square"></i></button></td>
-                                </form>
-                                <form action="" method="post">
-                                    <td class="text-truncate"  style="max-width: 200px; padding-left: 35px"><button type="submit"><i class="fa fa-minus-square"></i></button></td>
+                                    <td class="text-truncate"  style="max-width: 200px; padding-left: 35px"><button type="submit"><i class="coffeecup-icons-cross2"></i></button></td>
                                 </form>
                             <?php } ?>
                             </tr>

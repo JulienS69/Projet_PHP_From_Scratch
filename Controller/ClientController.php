@@ -14,5 +14,11 @@ class ClientController extends Controller {
 
         }
 
+    public function add() {
+
+        $this->view("AddClient");
+
+    }
+
 
 }

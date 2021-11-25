@@ -7,7 +7,7 @@ CREATE TABLE `client` (
   `clientCP` varchar(5) NOT NULL,
   `ClientVille` varchar(250) DEFAULT NULL,
   `ClientTelephone` varchar(10) NOT NULL,
-  `ClientMail` varchar(250) NOT NULL,
+  `ClientMail` varchar(250) DEFAULT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
