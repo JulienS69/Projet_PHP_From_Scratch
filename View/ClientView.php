@@ -32,10 +32,8 @@
                                 <td class="text-truncate" style="max-width: 200px; padding-left: 20px"><?php echo $leClient->ClientNom ?></td>
                                 <td class="text-truncate" style="max-width: 200px;  padding-left: 20px"><?php echo $leClient ->ClientPrenom ?></td>
                                 <td class="text-truncate" style="max-width: 200px; padding-left: 20px"><?php echo $leClient ->ClientVille ?></td>
-                                <td class="text-truncate" style="max-width: 200px; padding-left: 20px"><a class="btn" href="?route=addClient"><i class="fa fa-plus-circle"></i></a></td>
-                                <form action="" method="post">
-                                    <td class="text-truncate"  style="max-width: 200px; padding-left: 35px"><button type="submit"><i class="coffeecup-icons-cross2"></i></button></td>
-                                </form>
+                                <td class="text-truncate" style="max-width: 200px; padding-left: 20px"><a class="btn" href="?route=addNewClient"><i class="fa fa-plus-circle"></i></a></td>
+                                <td class="text-truncate"  style="max-width: 200px; padding-left: 35px"><a href="?route=delete&id=<?php echo $leClient->id ?>"><i class="coffeecup-icons-cross2"></i></a></td>
                             <?php } ?>
                             </tr>
                             </tbody>

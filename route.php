@@ -13,4 +13,14 @@ $app = new App();
 
     $app->route("addNewClient", "ClientController", "showForm");
 
+    // Route permettant d'ajouter un nouveau client'.
+
     $app->route("addClient", "ClientController", "add");
+
+    // Route permettant d'afficher la page d'update du client.
+
+    $app->route("updateCLient", "ClientController", "showFormUpdateClient");
+
+    // Route permettant de delete un client
+
+    $app->route("delete", "ClientController", "deleteClient");

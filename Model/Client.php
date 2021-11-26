@@ -9,7 +9,7 @@ class Client extends Model
     protected $ClientRue;
     protected $clientCP;
     protected $ClientVille;
-    protected $fields = ['id', 'ClientNom', 'ClientPrenom', 'ClientRue', 'clientCP', 'ClientVille', 'ClienTelephone', 'ClientMail'];
+    //protected $fields = ['id', 'ClientNom', 'ClientPrenom', 'ClientRue', 'clientCP', 'ClientVille', 'ClienTelephone', 'ClientMail'];
 
     //endregion
 

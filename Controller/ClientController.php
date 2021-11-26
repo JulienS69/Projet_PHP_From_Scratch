@@ -15,10 +15,7 @@ class ClientController extends Controller {
         }
 
     public function add() {
-
-
-
-        (new Client)->create([
+        Client::create([
             "ClientNom" => $_POST["nom"],
             "ClientPrenom" => $_POST["prenom"],
             "ClientRue"=> $_POST["street"],
@@ -27,15 +24,36 @@ class ClientController extends Controller {
             "ClientTelephone"=> $_POST["tel"],
             "ClientMail"=> $_POST["mail"]
         ]);
-
         $clients=(new Client)->all();
         $this->view("ClientView", $clients);
+    }
 
+    public function deleteClient(){
+          $client = Client::find($_GET["id"]);
+          Client::delete($client);
+          $this->view("ClientView");
     }
 
     public function showForm(){
           $this->view("AddClient");
     }
+
+    public function showFormUpdateClient(){
+        $this->view("UpdateClient");
+    }
+
+//    public function update(){
+//        Client::update([
+//            "ClientNom" => $_POST["nom"],
+//            "ClientPrenom" => $_POST["prenom"],
+//            "ClientRue"=> $_POST["street"],
+//            "clientCP"=> $_POST["cp"],
+//            "ClientVille"=> $_POST["city"],
+//            "ClientTelephone"=> $_POST["tel"],
+//            "ClientMail"=> $_POST["mail"]
+//        ]);
+//    }
+
 
 
 }

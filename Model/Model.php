@@ -11,9 +11,9 @@ abstract class Model
     {
         $this->$attr = $value;
     }
-    function find($id)
+    static function find($id)
     {
-        $db = $this->connection();
+        $db = self::connection();
 
         $table = strtolower(get_called_class()); // exemple : vehicle
         $st = $db->prepare("Select * FROM " . $table . " WHERE id = " . $id);
@@ -33,20 +33,30 @@ abstract class Model
     static function create(array $data){
         $pdo = self::connection();
         $table = strtolower(get_called_class());
-        $insert = "";
-        $count = count($data);
-        $theCount = 0;
-        foreach ($data as $key => $value){
-            if($theCount != $count - 1){
-                $insert .= $value.", ";
-                $theCount++;
-            }else{
-                $insert .= $value;
-            }
-        }
-        $sql = "insert into $table values (default, ?)";
+        $sql = "insert into $table values ()";
         $req = $pdo->prepare($sql);
-        $req->execute(array($insert));
+        $req->execute();
+        $id = $pdo->lastInsertId();
+        self::update($id, $data);
+    }
+
+
+    static function delete($id) {
+        $pdo = self::connection();
+        $table = strtolower(get_called_class());
+        $sql = "DELETE FROM $table WHERE id = ?";
+        $req = $pdo->prepare($sql);
+        $req->execute();
+    }
+
+    static function update(int $id, array $data){
+        $pdo = self::connection();
+        $table = strtolower(get_called_class());
+        foreach ($data as $key => $value) {
+            $sql = "update $table set $key = ? where id = ?";
+            $req = $pdo->prepare($sql);
+            $req->execute(array($value, $id));
+        }
     }
 
     function save(){
@@ -92,12 +102,12 @@ abstract class Model
         return $array2;
     }
 
-    function delete(){
-        $db=$this->connection();
-        $table=strtolower(get_called_class());
-        $st=$db->prepare("delete from $table where id=:id");
-        $st ->bindValue("id", $this->id);
-        $st ->execute();
-    }
+//    function delete(){
+//        $db=$this->connection();
+//        $table=strtolower(get_called_class());
+//        $st=$db->prepare("delete from $table where id=:id");
+//        $st ->bindValue("id", $this->id);
+//        $st ->execute();
+//    }
 
 }
