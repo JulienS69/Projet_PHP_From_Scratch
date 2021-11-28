@@ -30,3 +30,29 @@ $app = new App();
 
     $app->route("delete", "ClientController", "deleteClient");
 
+
+    // Route permettant d'afficher la vue des comptes des clients
+
+    $app->route("viewCompte", "CompteController", "index");
+
+    // Route permettant d'afficher la vue de création de compte client
+
+    $app->route("createCompteView", "CompteController", "showCreateCompteView");
+
+    // Route permettant la création de compte client.
+
+    $app->route("createCompte", "CompteController", "create");
+
+    // Route permettant de supprimer le compte d'un client
+
+    $app->route("deleteCompte", "CompteController", "delete");
+
+    // Route permettant d'afficher la vue d'update pour le solde d'un compte client.
+
+    $app->route("updateSolde", "CompteController", "showFormUpdateCompteView");
+
+    // Route permettant d'update le solde du compte client
+
+    $app->route("updateCompte", "CompteController", "updateCompte");
+
+

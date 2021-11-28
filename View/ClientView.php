@@ -2,7 +2,7 @@
 <div class="row wecome-row" style="padding-top: 10px; padding-bottom: 20px">
     <div class="col-xs-12 welcome-column">
         <h4 class="welcome-subtitle">Accéder aux</h4>
-        <h1>Données</h1>
+        <h1>Clients</h1>
     </div>
 </div>
 <div class="min-h-screen bg-gray-100" style="padding-top: 50px; padding-bottom: 50px">
@@ -46,37 +46,3 @@
         </div>
     </div>
 </div>
-
-
-    <?php
-//    include("Client.php");
-//    $client = new Client();
-//    $result = $client->all();
-
-    //$db = new PDO('mysql:host=localhost:3306;dbname=creditsiov2;charset=utf8','root', '');
-    //$rs = $db->prepare("SELECT * FROM Client");
-    //$rs->execute();
-
-    //$rsv = $db->prepare("SELECT * FROM Mois WHERE NumMois=:1");
-    //$rsv ->bindValue(":NumMois", 1);;
-    //$rsv->execute()
-    //var_dump($result);
-
-    //$client1 = new Client();
-    //$client1->find(1);
-    //$client1 ->ClientNom="testtttttttttt";
-    //$client1 ->save();
-//
-//    foreach ($data as $leClient){
-//        ?>
-<!--        <client>-->
-<!--            <div style="padding-left: 25px; padding-top: 10px">-->
-<!--                <h2 class="badge" style="font-family: 'Arial Black'">--><?php //echo $leClient->ClientNom ?><!--</h2>-->
-<!--                <p>--><?php //echo $leClient ->ClientPrenom ?><!--</p>-->
-<!--                <p>--><?php //echo $leClient->ClientRue ?><!--</p>-->
-<!--                <p>--><?php //echo $leClient->clientCP ?><!--</p>-->
-<!--                <p>--><?php //echo $leClient->ClientVille ?><!--</p>-->
-<!--            </div>-->
-<!--        </client>-->
-<!--    --><?php //} ?>
-<!--</div>-->

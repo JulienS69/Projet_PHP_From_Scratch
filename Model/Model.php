@@ -78,7 +78,7 @@ abstract class Model
 
     static function connection()
     {
-        return  new PDO('mysql:host=localhost:3306;dbname=creditsiov2;charset=utf8','root', '');
+        return  new PDO('mysql:host=localhost:3306;dbname=projet_yael;charset=utf8','root', '');
     }
 
     function all()
@@ -88,6 +88,25 @@ abstract class Model
         $model=get_called_class();
         $table = strtolower(get_called_class());
         $st = $db->prepare('SELECT * FROM '. $table);
+        $st -> execute();
+        while($LRS = $st->fetch(PDO::FETCH_ASSOC)){
+            $objet= new $model();
+            foreach ($LRS as $key => $value){
+                $objet->$key = $value;
+            }
+//            var_dump($array2);
+            $array2[] = $objet;
+        }
+        return $array2;
+    }
+
+    function all2()
+    {
+        $array2=[];
+        $db = $this->connection();
+        $model=get_called_class();
+        $table = strtolower(get_called_class());
+        $st = $db->prepare('SELECT * FROM compte join client on compte.ClientId = client.id ');
         $st -> execute();
         while($LRS = $st->fetch(PDO::FETCH_ASSOC)){
             $objet= new $model();
