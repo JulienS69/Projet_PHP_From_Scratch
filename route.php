@@ -21,6 +21,12 @@ $app = new App();
 
     $app->route("updateCLient", "ClientController", "showFormUpdateClient");
 
+    // Route permettant d'update un client
+
+    $app->route("update", "ClientController", "update");
+
+
     // Route permettant de delete un client
 
     $app->route("delete", "ClientController", "deleteClient");
+

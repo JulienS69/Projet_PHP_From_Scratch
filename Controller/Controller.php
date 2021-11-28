@@ -7,4 +7,5 @@ class Controller{
         include_once "View/".$view.".php";
         include_once "View/footer.php";
     }
+
 }

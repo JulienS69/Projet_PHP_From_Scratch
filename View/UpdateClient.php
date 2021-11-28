@@ -7,9 +7,9 @@
 </div>
 </body>
 <div class="card-body">
-    <form method="POST" action="?route=updateClient">
+    <form method="POST" action="?route=update&id=<?php echo $data->id ?>">
         <label for="">Nom : </label>
-        <input type="text" name="nom" value="<?php echo $data->ClientNom ?>">
+        <input type="text" name="nom" style="color: #0b0b0b" value="<?php echo $data->ClientNom ?>">
         <label for="" >Prénom : </label>
         <input type="text" name="prenom" style="color: #0b0b0b" value="<?php echo $data->ClientPrenom ?>"><br><br>
         <label for="">Rue : </label>

@@ -8,6 +8,7 @@ class ClientController extends Controller {
 //        include_once "View/Vehicule.php";
 //        include_once "View/footer.php";
 //    }
+
       public function index() {
             $clients=(new Client)->all();
             $this->view("ClientView", $clients);
@@ -29,30 +30,36 @@ class ClientController extends Controller {
     }
 
     public function deleteClient(){
-          $client = Client::find($_GET["id"]);
-          Client::delete($client);
-          $this->view("ClientView");
+        $client = Client::find($_GET["id"]);
+        Client::delete($client->id);
+        $this->view("AccueilView");
     }
+
 
     public function showForm(){
           $this->view("AddClient");
     }
 
     public function showFormUpdateClient(){
-        $this->view("UpdateClient");
+        $client = Client::find($_GET["id"]);
+        $this->view("UpdateClient", $client);
     }
 
-//    public function update(){
-//        Client::update([
-//            "ClientNom" => $_POST["nom"],
-//            "ClientPrenom" => $_POST["prenom"],
-//            "ClientRue"=> $_POST["street"],
-//            "clientCP"=> $_POST["cp"],
-//            "ClientVille"=> $_POST["city"],
-//            "ClientTelephone"=> $_POST["tel"],
-//            "ClientMail"=> $_POST["mail"]
-//        ]);
-//    }
+
+
+    public function update(){
+        $client = Client::find($_GET["id"]);
+        Client::update($client->id, [
+            "ClientNom" => $_POST["nom"],
+            "ClientPrenom" => $_POST["prenom"],
+            "ClientRue"=> $_POST["street"],
+            "clientCP"=> $_POST["cp"],
+            "ClientVille"=> $_POST["city"],
+            "ClientTelephone"=> $_POST["tel"],
+            "ClientMail"=> $_POST["mail"]
+        ]);
+        $this->view("AccueilView");
+    }
 
 
 

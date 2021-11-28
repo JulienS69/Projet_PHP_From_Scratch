@@ -22,6 +22,7 @@
                                 <th>Ville du client</th>
                                 <th>Ajouter</th>
                                 <th>Supprimer</th>
+                                <th>Modifier</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -33,7 +34,8 @@
                                 <td class="text-truncate" style="max-width: 200px;  padding-left: 20px"><?php echo $leClient ->ClientPrenom ?></td>
                                 <td class="text-truncate" style="max-width: 200px; padding-left: 20px"><?php echo $leClient ->ClientVille ?></td>
                                 <td class="text-truncate" style="max-width: 200px; padding-left: 20px"><a class="btn" href="?route=addNewClient"><i class="fa fa-plus-circle"></i></a></td>
-                                <td class="text-truncate"  style="max-width: 200px; padding-left: 35px"><a href="?route=delete&id=<?php echo $leClient->id ?>"><i class="coffeecup-icons-cross2"></i></a></td>
+                                <td class="text-truncate"  style="max-width: 200px; padding-left: 45px"><a href="?route=delete&id=<?php echo $leClient->id ?>"><i class="coffeecup-icons-cross2" style="color: #0b0b0b"></i></a></td>
+                                <td class="text-truncate"  style="max-width: 200px; padding-left: 35px"><a href="?route=updateCLient&id=<?php echo $leClient->id ?>"><i class="coffeecup-icons-pencil" style="color: #0b0b0b"></i></a></td>
                             <?php } ?>
                             </tr>
                             </tbody>

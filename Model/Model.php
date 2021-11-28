@@ -11,24 +11,22 @@ abstract class Model
     {
         $this->$attr = $value;
     }
+
     static function find($id)
     {
-        $db = self::connection();
-
-        $table = strtolower(get_called_class()); // exemple : vehicle
-        $st = $db->prepare("Select * FROM " . $table . " WHERE id = " . $id);
-        $st->execute();
-
-        return $st->fetch(PDO::FETCH_ASSOC);
+        $pdo = self::connection();
+        $table = strtolower(get_called_class());
+        $model = get_called_class();
+        $sql = "SELECT * FROM $table WHERE id = ?";
+        $req = $pdo->prepare($sql);
+        $req->execute(array($id));
+        $result = $req->fetch();
+        $obj = new $model();
+        foreach ($result as $key => $value){
+            $obj->$key = $value;
+        }
+        return $obj;
     }
-
-//    function testCreate($data){
-//        $data=[];
-//        $db = $this->connection();
-//        $table = strtolower(get_called_class());
-//        $st = $db->prepare("INSERT INTO $table VALUE $data");
-//        $st -> execute();
-//    }
 
     static function create(array $data){
         $pdo = self::connection();
@@ -40,13 +38,12 @@ abstract class Model
         self::update($id, $data);
     }
 
-
-    static function delete($id) {
+    static function delete($id){
         $pdo = self::connection();
         $table = strtolower(get_called_class());
-        $sql = "DELETE FROM $table WHERE id = ?";
+        $sql = "DELETE FROM $table where id = ?";
         $req = $pdo->prepare($sql);
-        $req->execute();
+        $req->execute(array($id));
     }
 
     static function update(int $id, array $data){
@@ -78,6 +75,7 @@ abstract class Model
             $st->execute();
         }
     }
+
     static function connection()
     {
         return  new PDO('mysql:host=localhost:3306;dbname=creditsiov2;charset=utf8','root', '');
